@@ -54,7 +54,7 @@ var options = {
     // database: process.env.DATABASE,
     synchronize: true,
     logging: false,
-    entities: [path_1.default.resolve(__dirname, "**/*.entity{.ts,.js}")],
+    entities: [path_1.default.join(__dirname, "**/*.entity{.ts,.js}")],
     extra: {
         ssl: true,
     },
@@ -69,10 +69,11 @@ exports.serverConnection = function () { return __awaiter(void 0, void 0, void 0
             case 1:
                 connection = _a.sent();
                 console.log("connection created successfully!");
+                console.log({ "Path to Entities": path_1.default.join(__dirname, "**/*.entity{.ts,.js}") });
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();
-                console.log(process.env.PASSWORD);
+                console.log({ "Path to Entities": path_1.default.join(__dirname, "**/*.entity{.ts,.js}") });
                 console.log("Oops! connection Error", { error: error_1 });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
