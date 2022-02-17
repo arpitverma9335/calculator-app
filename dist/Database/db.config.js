@@ -40,6 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
+var exp_entity_1 = require("./exp.entity");
 var path_1 = __importDefault(require("path"));
 var env_path = path_1.default.join(__dirname, "..", "..", ".env");
 require("dotenv").config({ path: env_path });
@@ -54,9 +55,9 @@ var options = {
     // database: process.env.DATABASE,
     synchronize: true,
     logging: false,
-    entities: [path_1.default.join(__dirname, "**/*.entity{.ts,.js}")],
+    entities: [exp_entity_1.Expressions],
     extra: {
-        ssl: true,
+    //ssl: true,
     },
 };
 exports.serverConnection = function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -70,10 +71,12 @@ exports.serverConnection = function () { return __awaiter(void 0, void 0, void 0
                 connection = _a.sent();
                 console.log("connection created successfully!");
                 console.log({ "Path to Entities": path_1.default.join(__dirname, "**/*.entity{.ts,.js}") });
+                console.log("$$$", exp_entity_1.Expressions);
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();
                 console.log({ "Path to Entities": path_1.default.join(__dirname, "**/*.entity{.ts,.js}") });
+                console.log("$$$", exp_entity_1.Expressions);
                 console.log("Oops! connection Error", { error: error_1 });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
