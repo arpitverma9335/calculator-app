@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions</title>
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/expressions.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="/calculator">Calculator</a>
+      <a class="active" href="/compute">Expressions</a>
+      <div class="search-container">
+        <form action="/compute/expression/" method="get">
+          <input type="number" placeholder="Search by ID" name="expression" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+    <% if (id_found) { %>
+    <div class="tableDiv">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Expression</th>
+          <th>Value</th>
+          <th>Delete</th>
+        </tr>
+        <% expressions.forEach((exp)=> { %>
+        <tr>
+          <td><%=exp.id%></td>
+          <td><%=exp.Expression%></td>
+          <td><%=exp.Answer%></td>
+          <td>
+            <div class="delete-container">
+              <form action="/compute/expression/delete" method="get">
+                <input type="hidden" value="<%=exp.id%>" name="expression" />
+                <button type="submit"><i class="fa fa-trash"></i></button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
+    <% } else { %>
+    <h1><%=result %></h1>
+    <% } %>
+  </body>
+</html>

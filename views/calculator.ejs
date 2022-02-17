@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/calculator.css" />
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a class="active" href="#">Calculator</a>
+      <a href="/compute">Expressions</a>
+    </div>
+
+    <div class="dataForm">
+      <form action="/compute" method="post">
+        <label for="expression">Expression</label>
+        <input type="text" id="expression" name="expression" />
+        <input type="submit" value="Calculate" />
+      </form>
+    </div>
+    <% if (is_expression) { %>
+    <div class="result">Your expression:&nbsp;<i class="success"><%= expression.Expression %></i></div>
+    <div class="result">Your solution:&nbsp;&nbsp;&nbsp;<i class="success"><%= expression.Answer %></i></div>
+    <% } else if (is_error) { %>
+    <div class="result">Your expression:&nbsp;<i class="danger"><%= expression %></i></div>
+    <div class="result">Error Occured:&nbsp;&nbsp;&nbsp;<i class="danger"><%= error %></i></div>
+    <% } %>
+    <script>
+      if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+      }
+    </script>
+  </body>
+</html>

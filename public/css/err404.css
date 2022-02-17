@@ -1,0 +1,14 @@
+body {
+  background-image: url("./../img/landscape.jpg");
+  background-repeat: no-repeat;
+}
+
+img {
+  width: 6rem;
+}
+
+.errorMessage {
+  margin: auto;
+  text-align: center;
+  color: red;
+}
