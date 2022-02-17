@@ -55,6 +55,9 @@ var options = {
     synchronize: true,
     logging: false,
     entities: [path_1.default.resolve(__dirname, "**/*.entity{.ts,.js}")],
+    extra: {
+        ssl: true,
+    },
 };
 exports.serverConnection = function () { return __awaiter(void 0, void 0, void 0, function () {
     var connection, error_1;
