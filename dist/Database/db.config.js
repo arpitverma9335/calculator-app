@@ -57,7 +57,7 @@ var options = {
     logging: false,
     entities: [exp_entity_1.Expressions],
     extra: {
-    //ssl: true,
+        ssl: true,
     },
 };
 exports.serverConnection = function () { return __awaiter(void 0, void 0, void 0, function () {
