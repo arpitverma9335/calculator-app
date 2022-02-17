@@ -41,7 +41,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
-var exp_entity_1 = require("./exp.entity");
 var path_1 = __importDefault(require("path"));
 var env_path = path_1.default.join(__dirname, "..", "..", ".env");
 require("dotenv").config({ path: env_path });
@@ -56,7 +55,7 @@ var options = {
     database: process.env.DATABASE,
     synchronize: true,
     logging: false,
-    entities: [exp_entity_1.Expressions],
+    entities: [path_1.default.resolve(__dirname, "**/*.entity{.ts,.js}")],
 };
 exports.serverConnection = function () { return __awaiter(void 0, void 0, void 0, function () {
     var connection, error_1;
