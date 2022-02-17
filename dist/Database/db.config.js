@@ -38,21 +38,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var path_1 = __importDefault(require("path"));
 var env_path = path_1.default.join(__dirname, "..", "..", ".env");
 require("dotenv").config({ path: env_path });
 var options = {
-    url: "postgres://" + process.env.USER_NAME + ":" + process.env.PASSWORD + "@" + process.env.HOST_NAME + ":" + process.env.DB_PORT + "/" + process.env.DATABASE,
+    url: process.env.DATABASE_URL,
     name: "NoteServer",
     type: "postgres",
-    host: process.env.HOST_NAME,
-    port: (_a = parseInt(process.env.DB_PORT)) !== null && _a !== void 0 ? _a : 5432,
-    username: process.env.USER_NAME,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE,
+    // host: process.env.HOST_NAME,
+    // port: parseInt(process.env.DB_PORT) ?? 5432,
+    // username: process.env.USER_NAME,
+    // password: process.env.PASSWORD,
+    // database: process.env.DATABASE,
     synchronize: true,
     logging: false,
     entities: [path_1.default.resolve(__dirname, "**/*.entity{.ts,.js}")],
