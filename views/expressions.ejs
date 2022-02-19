@@ -15,9 +15,9 @@
       <a href="/calculator">Calculator</a>
       <a class="active" href="/compute">Expressions</a>
       <div class="search-container">
-        <form action="/compute/expression/" method="get">
-          <input type="number" placeholder="Search by ID" name="expression" required />
-          <button type="submit"><i class="fa fa-search"></i></button>
+        <form action="/compute/expression/" method="post">
+          <input type="number" placeholder="Search by ID" name="expressionID" required />
+          <button type="submit" title="Click to Search"><i class="fa fa-search"></i></button>
         </form>
       </div>
     </div>
@@ -39,7 +39,7 @@
             <div class="delete-container">
               <form action="/compute/expression/delete" method="get">
                 <input type="hidden" value="<%=exp.id%>" name="expression" />
-                <button type="submit"><i class="fa fa-trash"></i></button>
+                <button type="submit" title="delete"><i class="fa fa-trash"></i></button>
               </form>
             </div>
           </td>

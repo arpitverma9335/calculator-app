@@ -100,7 +100,7 @@ var CalculatorController = /** @class */ (function () {
             switch (_a.label) {
                 case 0:
                     expr_repository = typeorm_1.getConnection("NoteServer").getRepository(exp_entity_1.Expressions);
-                    return [4 /*yield*/, expr_repository.findByIds([req.query.expression])];
+                    return [4 /*yield*/, expr_repository.findByIds([req.body.expressionID])];
                 case 1:
                     req_exp = _a.sent();
                     if (req_exp.length > 0) {

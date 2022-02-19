@@ -70,13 +70,9 @@ exports.serverConnection = function () { return __awaiter(void 0, void 0, void 0
             case 1:
                 connection = _a.sent();
                 console.log("connection created successfully!");
-                console.log({ "Path to Entities": path_1.default.join(__dirname, "**/*.entity{.ts,.js}") });
-                console.log("$$$", exp_entity_1.Expressions);
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();
-                console.log({ "Path to Entities": path_1.default.join(__dirname, "**/*.entity{.ts,.js}") });
-                console.log("$$$", exp_entity_1.Expressions);
                 console.log("Oops! connection Error", { error: error_1 });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
