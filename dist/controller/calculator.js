@@ -77,11 +77,10 @@ var CalculatorController = /** @class */ (function () {
                     expr_repository = typeorm_1.getConnection("NoteServer").getRepository(exp_entity_1.Expressions);
                     expression_str = req.body.expression;
                     answer = calculation_1.calculator(expression_str);
-                    console.log(answer);
                     if (!(Number(answer) || answer === "0")) return [3 /*break*/, 2];
                     expression = new exp_entity_1.Expressions();
                     expression.Expression = expression_str;
-                    expression.Answer = answer;
+                    expression.Answer = (+answer).toFixed(2);
                     return [4 /*yield*/, expr_repository.save(expression)];
                 case 1:
                     _a.sent();
